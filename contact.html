@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KAWA Code お問い合わせ - ご質問・ご相談はこちらからお気軽にどうぞ">
+    <title>お問い合わせ - KAWA Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="images/kawa-logo.png" alt="KAWA Code Logo" class="nav-logo">
+                <span>KAWA Code</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features">機能</a>
+                <a href="index.html#governance">ガバナンス</a>
+                <a href="index.html#universal">ユニバーサル</a>
+                <a href="index.html#roi">ROI</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html" class="active">お問い合わせ</a>
+                <a href="index.html#download" class="btn-download-nav">ダウンロード</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content fade-in">
+                <h1 class="contact-title">
+                    <i class="fas fa-envelope"></i>
+                    お問い合わせ
+                </h1>
+                <p class="contact-subtitle">
+                    KAWA Codeに関するご質問・ご相談は、こちらのフォームからお気軽にお送りください。<br>
+                    担当者より2営業日以内にご返信いたします。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info fade-in">
+                    <h2><i class="fas fa-info-circle"></i> お問い合わせ窓口</h2>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>メールアドレス</h3>
+                                <a href="mailto:okamoto@kawacode.jp">okamoto@kawacode.jp</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>受付時間</h3>
+                                <p>平日 9:00 - 18:00（土日祝除く）</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-reply"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>返信時間</h3>
+                                <p>2営業日以内にご返信いたします</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-links">
+                        <h3><i class="fas fa-link"></i> その他のリソース</h3>
+                        <ul>
+                            <li>
+                                <a href="index.html#faq">
+                                    <i class="fas fa-question-circle"></i>
+                                    よくある質問（FAQ）
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/CodeAwareness/kawa.vscode" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    GitHub リポジトリ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://codeawareness.com" target="_blank">
+                                    <i class="fas fa-globe"></i>
+                                    公式サイト
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper fade-in">
+                    <form id="contactForm" class="contact-form">
+                        <!-- Access Key (Web3Forms) - このキーは実際には機能しません -->
+                        <!-- 注意: 実際に使用する場合は、Web3Forms (https://web3forms.com/) でアカウントを作成し、
+                             アクセスキーを取得して、下記の value に設定してください -->
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                        
+                        <!-- Redirect URL (送信後のリダイレクト先) -->
+                        <input type="hidden" name="redirect" value="https://your-domain.com/thank-you.html">
+                        
+                        <!-- Email Recipient (カスタムメールアドレス) -->
+                        <input type="hidden" name="email" value="okamoto@kawacode.jp">
+                        
+                        <!-- Bot Prevention -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-header">
+                            <h2><i class="fas fa-paper-plane"></i> メッセージを送信</h2>
+                            <p>下記のフォームに必要事項をご記入ください</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">
+                                <i class="fas fa-building"></i>
+                                会社名
+                                <span class="optional">(任意)</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                placeholder="例：株式会社サンプル"
+                                class="form-input"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i>
+                                お名前
+                                <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="例：山田 太郎"
+                                class="form-input"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                メールアドレス
+                                <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="emailInput" 
+                                name="from_email" 
+                                placeholder="例：yamada@example.com"
+                                class="form-input"
+                                required
+                            >
+                            <small class="form-help">ご返信先のメールアドレスをご入力ください</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment-dots"></i>
+                                お問い合わせ内容
+                                <span class="required">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="8" 
+                                placeholder="お問い合わせ内容をご記入ください&#10;&#10;例：&#10;・KAWA Codeの導入について相談したい&#10;・ライセンスや価格について知りたい&#10;・技術的な質問がある"
+                                class="form-input form-textarea"
+                                required
+                            ></textarea>
+                            <small class="form-help">できるだけ詳しくご記入いただけると、スムーズにご対応できます</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                送信する
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                <i class="fas fa-redo"></i>
+                                リセット
+                            </button>
+                        </div>
+
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="resources-content fade-in">
+                <h2><i class="fas fa-book"></i> お問い合わせ前にご確認ください</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>よくある質問</h3>
+                        <p>多くの質問はFAQで解決できます。まずはこちらをご確認ください。</p>
+                        <a href="index.html#faq" class="resource-link">
+                            FAQを見る
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>セットアップガイド</h3>
+                        <p>インストールと初期設定の手順を詳しく解説しています。</p>
+                        <a href="index.html#faq" class="resource-link">
+                            ガイドを見る
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub Issues</h3>
+                        <p>技術的な問題や機能要望はGitHubで管理しています。</p>
+                        <a href="https://github.com/CodeAwareness/kawa.vscode/issues" target="_blank" class="resource-link">
+                            Issuesを見る
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-title">
+                    世界のエンジニア人口を、<br>
+                    <span class="highlight">200万人から2億人へ。</span>
+                </h2>
+                <div class="footer-links">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        ホーム
+                    </a>
+                    <a href="https://github.com/CodeAwareness/kawa.vscode" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://codeawareness.com" target="_blank">
+                        <i class="fas fa-globe"></i>
+                        公式サイト
+                    </a>
+                    <a href="mailto:okamoto@kawacode.jp">
+                        <i class="fas fa-envelope"></i>
+                        okamoto@kawacode.jp
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KAWA Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
