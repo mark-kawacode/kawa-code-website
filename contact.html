@@ -26,6 +26,7 @@
                 <a href="index.html#universal">ユニバーサル</a>
                 <a href="index.html#roi">ROI</a>
                 <a href="index.html#faq">FAQ</a>
+                <a href="manual.html">マニュアル</a>
                 <a href="contact.html" class="active">お問い合わせ</a>
                 <a href="index.html#download" class="btn-download-nav">ダウンロード</a>
             </div>
@@ -62,7 +63,7 @@
                             </div>
                             <div class="info-text">
                                 <h3>メールアドレス</h3>
-                                <a href="mailto:okamoto@kawacode.jp">okamoto@kawacode.jp</a>
+                                <a href="/cdn-cgi/l/email-protection#711e1a101c1e051e311a100610121e15145f1b01"><span class="__cf_email__" data-cfemail="c4abafa5a9abb0ab84afa5b3a5a7aba0a1eaaeb4">[email&#160;protected]</span></a>
                             </div>
                         </div>
                         <div class="info-item">
@@ -112,20 +113,9 @@
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper fade-in">
-                    <form id="contactForm" class="contact-form">
-                        <!-- Access Key (Web3Forms) - このキーは実際には機能しません -->
-                        <!-- 注意: 実際に使用する場合は、Web3Forms (https://web3forms.com/) でアカウントを作成し、
-                             アクセスキーを取得して、下記の value に設定してください -->
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-                        
-                        <!-- Redirect URL (送信後のリダイレクト先) -->
-                        <input type="hidden" name="redirect" value="https://your-domain.com/thank-you.html">
-                        
-                        <!-- Email Recipient (カスタムメールアドレス) -->
-                        <input type="hidden" name="email" value="okamoto@kawacode.jp">
-                        
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xqedlbpg" method="POST">
                         <!-- Bot Prevention -->
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <input type="checkbox" name="_gotcha" class="hidden" style="display: none;">
 
                         <div class="form-header">
                             <h2><i class="fas fa-paper-plane"></i> メッセージを送信</h2>
@@ -172,7 +162,7 @@
                             <input 
                                 type="email" 
                                 id="emailInput" 
-                                name="from_email" 
+                                name="email" 
                                 placeholder="例：yamada@example.com"
                                 class="form-input"
                                 required
@@ -280,9 +270,13 @@
                         <i class="fas fa-globe"></i>
                         公式サイト
                     </a>
-                    <a href="mailto:okamoto@kawacode.jp">
-                        <i class="fas fa-envelope"></i>
-                        okamoto@kawacode.jp
+                    <a href="terms.html">
+                        <i class="fas fa-file-contract"></i>
+                        利用規約
+                    </a>
+                    <a href="privacy.html">
+                        <i class="fas fa-shield-alt"></i>
+                        プライバシーポリシー
                     </a>
                 </div>
             </div>
@@ -292,7 +286,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
     <script src="js/contact.js"></script>
-</body>
+<script src="https://www.genspark.ai/sandbox_inspect.js"></script></body>
 </html>

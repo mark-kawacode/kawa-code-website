@@ -1,5 +1,5 @@
 // ===================================
-// Kawa Code - Main JavaScript
+// KAWA Code - Main JavaScript
 // ===================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -167,7 +167,7 @@ function calculateROI() {
     // Current loss = annual cost × (rework rate / 100)
     const currentLoss = annualCost * (reworkRate / 100);
     
-    // After Kawa Code: reduce rework rate by 50%
+    // After KAWA: reduce rework rate by 50%
     const improvedRate = reworkRate / 2;
     const improvedLoss = annualCost * (improvedRate / 100);
     
@@ -183,7 +183,7 @@ function calculateROI() {
     // Equivalent employees
     const equivEmployees = Math.round(timeSaved / 2000);
     
-    // Payback period (assume Kawa Code cost is ~10% of annual savings)
+    // Payback period (assume KAWA cost is ~10% of annual savings)
     // Simple calculation: 1.2 months average
     const paybackMonths = Math.max(1, Math.round(12 * 0.1));
     
@@ -434,7 +434,7 @@ function activateEasterEgg() {
     
     setTimeout(() => {
         document.body.style.animation = '';
-        alert('🎉 Kawa Code パワーアップ！ユニバーサル・プログラミングで世界を変えよう！');
+        alert('🎉 KAWA Code パワーアップ！ユニバーサル・プログラミングで世界を変えよう！');
     }, 2000);
 }
 
@@ -480,9 +480,9 @@ function initLazyLoading() {
 // Console Message
 // ===================================
 
-console.log('%c🚀 Kawa Code', 'font-size: 24px; font-weight: bold; color: #2F81F7;');
+console.log('%c🚀 KAWA Code', 'font-size: 24px; font-weight: bold; color: #2F81F7;');
 console.log('%cAI時代の開発を、ただの生成から『意図の管理』へ。', 'font-size: 14px; color: #8B949E;');
 console.log('%c世界のエンジニア人口を、200万人から2億人へ。', 'font-size: 14px; color: #3FB950;');
-console.log('\n開発者の方へ: Kawa Codeに興味がありますか？');
+console.log('\n開発者の方へ: KAWA Codeに興味がありますか？');
 console.log('公式サイト: https://codeawareness.com');
 console.log('GitHub: https://github.com/CodeAwareness/kawa.vscode');

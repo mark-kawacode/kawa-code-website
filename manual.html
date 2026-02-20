@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KAWA Code ユーザーマニュアル - インストールから使い方まで完全ガイド">
+    <title>ユーザーマニュアル - KAWA Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/manual.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="images/kawa-logo.png" alt="KAWA Code Logo" class="nav-logo">
+                <span>KAWA Code</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features">機能</a>
+                <a href="index.html#governance">ガバナンス</a>
+                <a href="index.html#universal">ユニバーサル</a>
+                <a href="index.html#roi">ROI</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="manual.html" class="active">マニュアル</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="index.html#download" class="btn-download-nav">ダウンロード</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Manual Hero Section -->
+    <section class="manual-hero">
+        <div class="container">
+            <div class="manual-hero-content fade-in">
+                <h1 class="manual-title">
+                    <i class="fas fa-book"></i>
+                    ユーザーマニュアル
+                </h1>
+                <p class="manual-subtitle">
+                    KAWA Code へようこそ。<br>
+                    リアルタイム AI 対応コラボレーションプラットフォームです。
+                </p>
+                <div class="manual-download-btn">
+                    <a href="docs/kawa-code-user-manual.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i>
+                        PDF版をダウンロード
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="manual-toc-section">
+        <div class="container">
+            <div class="manual-toc fade-in">
+                <h2><i class="fas fa-list"></i> 目次</h2>
+                <ul class="toc-list">
+                    <li><a href="#overview">1. 概要</a></li>
+                    <li><a href="#system-requirements">2. システム要件</a></li>
+                    <li><a href="#installation">3. インストール</a></li>
+                    <li><a href="#extensions">4. Muninn 拡張機能</a></li>
+                    <li><a href="#getting-started">5. はじめに</a></li>
+                    <li><a href="#claude-setup">6. CLAUDE.md のセットアップ</a></li>
+                    <li><a href="#troubleshooting">7. トラブルシューティング</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manual Content -->
+    <section class="manual-content-section">
+        <div class="container">
+            <div class="manual-content">
+                <!-- Overview -->
+                <article id="overview" class="manual-article fade-in">
+                    <h2><i class="fas fa-info-circle"></i> 1. 概要</h2>
+                    <p>Kawa Code エコシステムは、複数の相互接続されたコンポーネントで構成されています。</p>
+                    
+                    <h3>コンポーネント</h3>
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <div class="component-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h4>Muninn</h4>
+                            <p>Kawa Code デスクトップアプリケーション - Git 操作を管理し、差分を生成し、クラウドと同期する中心的なハブ</p>
+                        </div>
+                        <div class="component-card">
+                            <div class="component-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h4>Muninn Extensions</h4>
+                            <p>kawa.i18n コード翻訳拡張機能など、Kawa Code メインアプリケーション用の拡張機能</p>
+                        </div>
+                        <div class="component-card">
+                            <div class="component-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Huginn Extensions</h4>
+                            <p>Kawa Code に接続し、コラボレーション機能を表示するエディタプラグイン (VSCode、Emacs、Vim)</p>
+                        </div>
+                        <div class="component-card">
+                            <div class="component-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4>Kawa API</h4>
+                            <p>チームメンバーを調整するクラウドサービス</p>
+                        </div>
+                        <div class="component-card">
+                            <div class="component-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4>MCP Server</h4>
+                            <p>インテント追跡機能を備えた AI 支援開発のための Claude Code との統合</p>
+                        </div>
+                    </div>
+
+                    <h3>アーキテクチャ</h3>
+                    <div class="architecture-diagram">
+                        <pre><code>Editor (VSCode/Emacs/Vim)
+    ↓
+Unix sockets / Named pipes
+    ↓
+Muninn (Desktop App)
+    ↓
+WebSockets
+    ↓
+Kawa API (Cloud)</code></pre>
+                    </div>
+
+                    <h3>データストレージと同期</h3>
+                    <ul>
+                        <li>ローカルストレージ：すべてのデータはローカルマシンに保存されます</li>
+                        <li>クラウド同期：オプションでチームメンバーとの同期が可能</li>
+                        <li>リアルタイム更新：WebSocketsを使用した即座の変更通知</li>
+                    </ul>
+                </article>
+
+                <!-- System Requirements -->
+                <article id="system-requirements" class="manual-article fade-in">
+                    <h2><i class="fas fa-laptop"></i> 2. システム要件</h2>
+                    
+                    <div class="requirements-grid">
+                        <div class="requirement-card">
+                            <h3><i class="fab fa-apple"></i> macOS</h3>
+                            <ul>
+                                <li>macOS 11.0 (Big Sur) 以降</li>
+                                <li>Apple Silicon (M1/M2/M3) または Intel プロセッサ</li>
+                                <li>4GB RAM 以上推奨</li>
+                            </ul>
+                        </div>
+                        <div class="requirement-card">
+                            <h3><i class="fab fa-windows"></i> Windows</h3>
+                            <ul>
+                                <li>Windows 10 (64-bit) 以降</li>
+                                <li>4GB RAM 以上推奨</li>
+                                <li>.NET Framework 4.7.2 以降</li>
+                            </ul>
+                        </div>
+                        <div class="requirement-card">
+                            <h3><i class="fab fa-linux"></i> Linux</h3>
+                            <ul>
+                                <li>Ubuntu 20.04 以降 / Debian 11 以降</li>
+                                <li>4GB RAM 以上推奨</li>
+                                <li>GTK+ 3.0 以降</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Installation -->
+                <article id="installation" class="manual-article fade-in">
+                    <h2><i class="fas fa-download"></i> 3. インストール</h2>
+
+                    <h3>Muninn デスクトップアプリ</h3>
+                    <div class="install-steps">
+                        <div class="install-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>インストーラーをダウンロード</h4>
+                                <p>公式サイトから、お使いのOSに対応したインストーラーをダウンロードします。</p>
+                                <div class="download-buttons">
+                                    <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-4.0.5.dmg" class="btn btn-secondary">
+                                        <i class="fab fa-apple"></i> macOS (Apple Silicon)
+                                    </a>
+                                    <a href="https://apps.microsoft.com/detail/9nnqv44kh6fg?hl=en-US&gl=US" class="btn btn-secondary" target="_blank">
+                                        <i class="fab fa-windows"></i> Windows
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="install-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>アプリケーションを起動</h4>
+                                <p>インストール後、アプリケーションを起動し、初期設定を行います。</p>
+                            </div>
+                        </div>
+                        <div class="install-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>アカウントを作成</h4>
+                                <p>クラウド同期を使用する場合は、アカウントを作成してログインします。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>エディタ拡張機能</h3>
+                    <div class="editor-extensions">
+                        <div class="extension-item">
+                            <h4><i class="fas fa-code"></i> Visual Studio Code</h4>
+                            <p>VSCode Marketplaceから「Kawa Code」または「Universal Context Platform」を検索してインストール</p>
+                            <a href="https://github.com/CodeAwareness/kawa.vscode" target="_blank" class="extension-link">
+                                <i class="fab fa-github"></i> GitHub リポジトリ
+                            </a>
+                        </div>
+                        <div class="extension-item">
+                            <h4><i class="fas fa-code"></i> Emacs</h4>
+                            <p>MELPA経由でインストール可能</p>
+                        </div>
+                        <div class="extension-item">
+                            <h4><i class="fas fa-code"></i> Vim</h4>
+                            <p>Vim-Plug経由でインストール可能</p>
+                        </div>
+                    </div>
+
+                    <h3>Claude Code 用 MCP サーバー</h3>
+                    <p>AI支援開発のために、Claude Codeとの統合が可能です。</p>
+                    <pre><code class="language-bash"># MCPサーバーのインストール
+npm install -g @kawacode/mcp-server
+
+# 設定
+kawa-mcp setup</code></pre>
+                </article>
+
+                <!-- Extensions -->
+                <article id="extensions" class="manual-article fade-in">
+                    <h2><i class="fas fa-puzzle-piece"></i> 4. Muninn 拡張機能</h2>
+
+                    <h3>拡張機能のインストール</h3>
+                    <p>Muninnアプリケーション内から、拡張機能をインストールできます。</p>
+                    <ol>
+                        <li>Muninnアプリを起動</li>
+                        <li>設定 > 拡張機能 に移動</li>
+                        <li>利用可能な拡張機能から選択してインストール</li>
+                    </ol>
+
+                    <h3>推奨拡張機能</h3>
+                    <ul>
+                        <li><strong>kawa.i18n</strong> - コード翻訳機能（日英変換）</li>
+                        <li><strong>kawa.ai-audit</strong> - AI生成コードの監査機能</li>
+                        <li><strong>kawa.intent-tracker</strong> - 開発意図の追跡</li>
+                    </ul>
+
+                    <h3>独自の拡張機能の作成</h3>
+                    <p>Kawa Code SDKを使用して、独自の拡張機能を開発できます。</p>
+                    <pre><code class="language-bash"># SDK のインストール
+npm install @kawacode/sdk
+
+# プロジェクトのセットアップ
+kawa-cli create-extension my-extension</code></pre>
+                </article>
+
+                <!-- Getting Started -->
+                <article id="getting-started" class="manual-article fade-in">
+                    <h2><i class="fas fa-rocket"></i> 5. はじめに</h2>
+
+                    <h3>基本的なワークフロー</h3>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="workflow-icon">1</div>
+                            <h4>プロジェクトを開く</h4>
+                            <p>Muninnでプロジェクトフォルダーを開きます</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-icon">2</div>
+                            <h4>エディタで編集</h4>
+                            <p>VSCodeなどでコードを編集します</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-icon">3</div>
+                            <h4>変更を保存</h4>
+                            <p>Muninnが自動的に変更を追跡します</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-icon">4</div>
+                            <h4>同期</h4>
+                            <p>チームメンバーと変更を共有します</p>
+                        </div>
+                    </div>
+
+                    <h3>主要機能</h3>
+                    <ul>
+                        <li><strong>リアルタイム同期</strong> - チームメンバーの変更を即座に確認</li>
+                        <li><strong>競合検知</strong> - 編集競合を事前に検出</li>
+                        <li><strong>インテント追跡</strong> - 変更の意図を記録</li>
+                        <li><strong>AI統合</strong> - Claude Codeとの連携</li>
+                    </ul>
+                </article>
+
+                <!-- Claude Setup -->
+                <article id="claude-setup" class="manual-article fade-in">
+                    <h2><i class="fas fa-robot"></i> 6. CLAUDE.md のセットアップ</h2>
+
+                    <p>プロジェクトルートに<code>CLAUDE.md</code>ファイルを作成することで、AIアシスタントに開発意図を伝えることができます。</p>
+
+                    <h3>CLAUDE.md テンプレート</h3>
+                    <pre><code class="language-markdown"># プロジェクト概要
+このプロジェクトは...
+
+# 開発ガイドライン
+- コーディング規約
+- アーキテクチャの原則
+- テスト方針
+
+# 現在の課題
+- 実装中の機能
+- 解決すべき問題</code></pre>
+
+                    <h3>AIとの連携</h3>
+                    <p>CLAUDE.mdを設定することで、AIアシスタントがプロジェクトのコンテキストを理解し、より適切な提案を行えます。</p>
+                </article>
+
+                <!-- Troubleshooting -->
+                <article id="troubleshooting" class="manual-article fade-in">
+                    <h2><i class="fas fa-wrench"></i> 7. トラブルシューティング</h2>
+
+                    <div class="troubleshooting-grid">
+                        <div class="trouble-item">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Muninnが起動しない</h3>
+                            <p><strong>解決策：</strong></p>
+                            <ul>
+                                <li>アプリケーションを再インストール</li>
+                                <li>システム要件を確認</li>
+                                <li>ログファイルを確認（<code>~/.kawa/logs</code>）</li>
+                            </ul>
+                        </div>
+
+                        <div class="trouble-item">
+                            <h3><i class="fas fa-exclamation-triangle"></i> エディタ拡張機能が接続できない</h3>
+                            <p><strong>解決策：</strong></p>
+                            <ul>
+                                <li>Muninnアプリが起動しているか確認</li>
+                                <li>拡張機能を再インストール</li>
+                                <li>ファイアウォール設定を確認</li>
+                            </ul>
+                        </div>
+
+                        <div class="trouble-item">
+                            <h3><i class="fas fa-exclamation-triangle"></i> 同期エラー</h3>
+                            <p><strong>解決策：</strong></p>
+                            <ul>
+                                <li>インターネット接続を確認</li>
+                                <li>アカウント認証を確認</li>
+                                <li>キャッシュをクリア</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="support-section">
+                        <h3><i class="fas fa-life-ring"></i> サポートが必要ですか？</h3>
+                        <p>上記で解決しない場合は、以下の方法でサポートを受けられます：</p>
+                        <div class="support-options">
+                            <a href="contact.html" class="support-btn">
+                                <i class="fas fa-envelope"></i>
+                                お問い合わせ
+                            </a>
+                            <a href="https://github.com/CodeAwareness/kawa.vscode/issues" target="_blank" class="support-btn">
+                                <i class="fab fa-github"></i>
+                                GitHub Issues
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        ホーム
+                    </a>
+                    <a href="manual.html" class="active">
+                        <i class="fas fa-book"></i>
+                        マニュアル
+                    </a>
+                    <a href="contact.html">
+                        <i class="fas fa-envelope"></i>
+                        お問い合わせ
+                    </a>
+                    <a href="terms.html">
+                        <i class="fas fa-file-contract"></i>
+                        利用規約
+                    </a>
+                    <a href="privacy.html">
+                        <i class="fas fa-shield-alt"></i>
+                        プライバシーポリシー
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KAWA Code. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+<script src="https://www.genspark.ai/sandbox_inspect.js"></script></body>
+</html>
