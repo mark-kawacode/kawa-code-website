@@ -35,11 +35,16 @@ function initContactForm() {
             // Get form data
             const formData = new FormData(form);
             
-            // Send email using simple fetch to backend endpoint
-            // Since this is a static site, we'll use a simple mailto fallback
-            const success = await sendEmail(formData);
+            // Send to Formspree
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-            if (success) {
+            if (response.ok) {
                 showMessage(
                     '<i class="fas fa-check-circle"></i> お問い合わせを送信しました！2営業日以内にご返信いたします。',
                     'success'
@@ -49,12 +54,17 @@ function initContactForm() {
                 // Scroll to message
                 formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
-                throw new Error('送信に失敗しました');
+                const data = await response.json();
+                if (data.errors) {
+                    throw new Error(data.errors.map(error => error.message).join(', '));
+                } else {
+                    throw new Error('送信に失敗しました');
+                }
             }
         } catch (error) {
             console.error('Form submission error:', error);
             showMessage(
-                '<i class="fas fa-exclamation-circle"></i> 送信に失敗しました。お手数ですが、直接 okamoto@kawacode.jp までメールでお問い合わせください。',
+                '<i class="fas fa-exclamation-circle"></i> 送信に失敗しました。お手数ですが、直接 <a href="mailto:okamoto@kawacode.jp" style="color: inherit; text-decoration: underline;">okamoto@kawacode.jp</a> までメールでお問い合わせください。',
                 'error'
             );
         } finally {
@@ -103,87 +113,10 @@ function validateForm(form) {
 }
 
 // ===================================
-// Send Email Function
+// Send Email Function (Now handled by Formspree)
 // ===================================
-
-async function sendEmail(formData) {
-    // Extract form data
-    const company = formData.get('company') || '未記入';
-    const name = formData.get('name');
-    const email = formData.get('from_email');
-    const message = formData.get('message');
-
-    // Method 1: Try using Web3Forms API (if access key is configured)
-    // Web3Forms is a free service that can send form submissions to your email
-    // Sign up at: https://web3forms.com/
-    
-    const accessKey = formData.get('access_key');
-    
-    if (accessKey && accessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            });
-
-            const result = await response.json();
-            
-            if (result.success) {
-                return true;
-            }
-        } catch (error) {
-            console.error('Web3Forms error:', error);
-        }
-    }
-
-    // Method 2: Formspree fallback (alternative service)
-    // You can sign up at: https://formspree.io/
-    // Replace YOUR_FORMSPREE_ID with your actual Formspree form ID
-    
-    try {
-        const formspreeData = {
-            company: company,
-            name: name,
-            email: email,
-            message: message
-        };
-
-        const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formspreeData)
-        });
-
-        if (response.ok) {
-            return true;
-        }
-    } catch (error) {
-        console.error('Formspree error:', error);
-    }
-
-    // Method 3: Mailto fallback
-    // Opens the user's email client with pre-filled data
-    const subject = encodeURIComponent(`[Kawa Code お問い合わせ] ${name}様より`);
-    const body = encodeURIComponent(
-        `会社名: ${company}\n` +
-        `お名前: ${name}\n` +
-        `メールアドレス: ${email}\n\n` +
-        `お問い合わせ内容:\n${message}\n\n` +
-        `---\n` +
-        `送信日時: ${new Date().toLocaleString('ja-JP')}`
-    );
-    
-    const mailtoLink = `mailto:okamoto@kawacode.jp?subject=${subject}&body=${body}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Return true to show success message
-    // Note: We can't verify if the email was actually sent via mailto
-    return true;
-}
+// Formspree (https://formspree.io/f/xqedlbpg) handles the email sending
+// Form data is automatically sent to okamoto@kawacode.jp
 
 // ===================================
 // Show Message Function
@@ -347,8 +280,6 @@ function debounce(func, wait) {
 // Console Message
 // ===================================
 
-console.log('%c📧 Kawa Code お問い合わせページ', 'font-size: 16px; font-weight: bold; color: #2F81F7;');
-console.log('%cフォーム送信には以下のいずれかの設定が必要です:', 'font-size: 12px; color: #8B949E;');
-console.log('1. Web3Forms (https://web3forms.com/) でアクセスキーを取得');
-console.log('2. Formspree (https://formspree.io/) でフォームIDを取得');
-console.log('3. または、mailtoフォールバックが使用されます');
+console.log('%c📧 KawaCode お問い合わせページ', 'font-size: 16px; font-weight: bold; color: #2F81F7;');
+console.log('%cFormspree経由でokamoto@kawacode.jpへ送信されます', 'font-size: 12px; color: #8B949E;');
+console.log('フォームID: xqedlbpg');
