@@ -128,7 +128,7 @@ KawaCode（CodeAwareness）の公式ランディングページです。AI時代
 
 ### 外部リンク
 
-- **macOS Apple Silicon版**: `https://codeawareness.com/assets/kawa-code-darwin-aarch64-4.0.5.dmg`
+- **macOS Apple Silicon版**: `https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.0.dmg`
 - **Windows 64bit版**: `https://apps.microsoft.com/detail/9nnqv44kh6fg?hl=en-US&gl=US`
 - **VS Code拡張**: `https://github.com/CodeAwareness/kawa.vscode`
 - **公式サイト**: `https://codeawareness.com`
