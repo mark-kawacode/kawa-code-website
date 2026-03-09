@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- stripe pricing tables -->
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -48,7 +50,7 @@
                     <span class="highlight-green">保守性と品質を劇的に向上</span>させる次世代開発インフラです。
                 </p>
                 <div class="hero-cta">
-                    <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.1.dmg" class="btn btn-primary">
+                    <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.2.dmg" class="btn btn-primary">
                         <i class="fab fa-apple"></i>
                         Apple Silicon Mac版をダウンロード
                     </a>
@@ -452,6 +454,39 @@ function getCustomerData(customerId) {
 
     <hr class="section-divider">
 
+    <!-- Pricing -->
+    <section id="pricing" class="section-faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">
+                    <i class="fas fa-question-dollar"></i> 料金プラン
+                </h2>
+            </div>
+
+            <div class="setup-guide fade-in" style="display: flex">
+
+		<stripe-pricing-table pricing-table-id="prctbl_1T957YAcosAzyvc1uuoJ7Mx3"
+style="flex: 1 1 400px; min-width: 0;"
+publishable-key="pk_live_51NMtJvAcosAzyvc1Mhw9SGGj1xdm9GXyXi0XfSExpcgL9cA23Dh8tYXzjGMzKouFOutj8yQz62ZFzQg7PzkRYZGr00GXfrtUMv">
+		</stripe-pricing-table>
+
+		<stripe-pricing-table pricing-table-id="prctbl_1T95BuAcosAzyvc1IwCWm3hN"
+style="flex: 1 1 400px; min-width: 0;"
+publishable-key="pk_live_51NMtJvAcosAzyvc1Mhw9SGGj1xdm9GXyXi0XfSExpcgL9cA23Dh8tYXzjGMzKouFOutj8yQz62ZFzQg7PzkRYZGr00GXfrtUMv">
+		</stripe-pricing-table>
+	    </div>
+
+            <div class="setup-guide fade-in" style="display: flex">
+	        <div class="download-links">
+	  	  <a href="https://billing.stripe.com/p/login/cN28xQ67aeGac9O9AA" target="_blank" class="download-link">支払い履歴や管理はこちら</a>
+	        </div>
+	    </div>
+	</div>
+    </section>
+
+
+    <hr class="section-divider">
+
     <!-- Setup & FAQ Section -->
     <section id="faq" class="section-faq">
         <div class="container">
@@ -471,8 +506,8 @@ function getCustomerData(customerId) {
                             <h4>インストール</h4>
                             <p>デスクトップアプリをダウンロードします</p>
                             <div class="download-links">
-                                <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.1.dmg" class="download-link">
-                                    <i class="fab fa-apple"></i> Apple Silicon: kawa-code-darwin-aarch64-5.0.1.dmg
+                                <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.2.dmg" class="download-link">
+                                    <i class="fab fa-apple"></i> Apple Silicon: kawa-code-darwin-aarch64-5.0.2.dmg
                                 </a>
                             </div>
                         </div>
@@ -556,7 +591,7 @@ function getCustomerData(customerId) {
                     KawaCodeで、次世代のソフトウェア開発を始めましょう。
                 </p>
                 <div class="footer-downloads">
-                    <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.1.dmg" class="btn btn-primary btn-large">
+                    <a href="https://codeawareness.com/assets/kawa-code-darwin-aarch64-5.0.2.dmg" class="btn btn-primary btn-large">
                         <i class="fab fa-apple"></i>
                         macOS (Apple Silicon) をダウンロード
                     </a>
